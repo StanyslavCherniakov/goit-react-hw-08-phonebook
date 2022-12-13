@@ -4,20 +4,20 @@ import { nanoid } from 'nanoid';
 export class App extends Component {
 
   state = {
-    contacts: [],
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
     name: '',
     number: '',
+    filter: '',
   };
 
-  handleNameChange = (e) => {
+  handleInputChange = (e) => {
     this.setState({
-      name: e.currentTarget.value,
-    });
-  };
-
-  handleNumberChange = (e) => {
-    this.setState({
-      number: e.currentTarget.value,
+      [e.currentTarget.name]: e.currentTarget.value,
     });
   };
 
@@ -34,8 +34,15 @@ export class App extends Component {
     this.setState({ name: '', number: '' });
   };
 
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+    const normalized = filter.toLowerCase();
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalized));
+  };
 
   render() {
+    const visibleContacts = this.getVisibleContacts();
+    
     return (
       <div>
         <h1>Phonebook</h1>
@@ -44,7 +51,7 @@ export class App extends Component {
           <label>
             <input
               value={this.state.name}
-              onChange={this.handleNameChange}
+              onChange={this.handleInputChange}
               type='text'
               name='name'
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -56,7 +63,7 @@ export class App extends Component {
             Number
             <input
               value={this.state.number}
-              onChange={this.handleNumberChange}
+              onChange={this.handleInputChange}
               type='tel'
               name='number'
               pattern='\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}'
@@ -67,8 +74,9 @@ export class App extends Component {
           <button type='submit'>Add contact</button>
         </form>
         <h2>Contacts</h2>
+        <input type='text' name='filter' value={this.state.filter} onChange={this.handleInputChange} />
         <ul>
-          {this.state.contacts.map(el => <li key={el.id}>{el.name}: {el.number}</li>)}
+          {visibleContacts.map(el => <li key={el.id}>{el.name}: {el.number}</li>)}
         </ul>
       </div>
     );
