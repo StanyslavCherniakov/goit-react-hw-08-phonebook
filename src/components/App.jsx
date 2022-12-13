@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { Form } from './Form/Form';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
+
 import { nanoid } from 'nanoid';
+
 
 export class App extends Component {
 
@@ -38,17 +42,14 @@ export class App extends Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <Form onSubmit={this.addContact} />
+        <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
-        <input type='text' name='filter' value={this.state.filter} onChange={this.handleInputChange} />
-        <ul>
-          {visibleContacts.map(el => <li key={el.id}>{el.name}: {el.number}</li>)}
-        </ul>
+        <Filter value={this.state.filter} onFilter={this.handleInputChange} />
+        <ContactList contacts={visibleContacts} />
       </div>
     );
   }
 }
 
-App.propTypes = {};
 
 

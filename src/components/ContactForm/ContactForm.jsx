@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Form extends Component {
+export class ContactForm extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',
@@ -52,7 +56,7 @@ export class Form extends Component {
   }
 }
 
-Form.propTypes = {};
+ContactForm.propTypes = {};
 
 
 
