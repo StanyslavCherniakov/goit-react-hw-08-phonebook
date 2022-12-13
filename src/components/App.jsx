@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
+import { ContactForm } from './ContactForm';
+import { ContactList } from './ContactList';
+import { Filter } from './Filter';
 
 import { nanoid } from 'nanoid';
+import { Title, TitleContacts, Wrapper } from './App.styled';
 
 
 export class App extends Component {
@@ -55,13 +56,13 @@ export class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Wrapper>
+        <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
+        <TitleContacts>Contacts</TitleContacts>
         <Filter value={this.state.filter} onFilter={this.handleInputChange} />
         <ContactList contacts={visibleContacts} deleteContact={this.deleteContact} />
-      </div>
+      </Wrapper>
     );
   }
 }
