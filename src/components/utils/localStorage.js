@@ -24,8 +24,10 @@ const remove = key => {
   }
 };
 
-export default {
+const LsService = {
   save,
   load,
   remove,
 };
+
+export default LsService;
