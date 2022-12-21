@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
+import LsService from './utils/localStorage';
 
 import { nanoid } from 'nanoid';
 import { Title, TitleContacts, Wrapper } from './App.styled';
@@ -13,6 +14,19 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    if (LsService.load('phonebook')) {
+      const LSData = LsService.load('phonebook');
+      this.setState({ contacts: LSData });
+    }
+  }
+
+  componentDidUpdate(pProps, pState) {
+    if (pState.contacts !== this.state.contacts) {
+      LsService.save('phonebook', this.state.contacts);
+    }
+  }
 
   handleInputChange = (e) => {
     this.setState({
@@ -55,15 +69,13 @@ export class App extends Component {
   render() {
     const visibleContacts = this.getVisibleContacts();
 
-    return (
-      <Wrapper>
-        <Title>Phonebook</Title>
-        <ContactForm onSubmit={this.addContact} />
-        <TitleContacts>Contacts</TitleContacts>
-        <Filter value={this.state.filter} onFilter={this.handleInputChange} />
-        <ContactList contacts={visibleContacts} deleteContact={this.deleteContact} />
-      </Wrapper>
-    );
+    return (<Wrapper>
+      <Title>Phonebook</Title>
+      <ContactForm onSubmit={this.addContact} />
+      <TitleContacts>Contacts</TitleContacts>
+      <Filter value={this.state.filter} onFilter={this.handleInputChange} />
+      <ContactList contacts={visibleContacts} deleteContact={this.deleteContact} />
+    </Wrapper>);
   }
 }
 
