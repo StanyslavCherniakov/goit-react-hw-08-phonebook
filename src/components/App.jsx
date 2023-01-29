@@ -16,7 +16,6 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   const state = useSelector(state => state.contactList);
-  console.log(state);
   const dispatch = useDispatch();
 
   // useEffect(() => {
