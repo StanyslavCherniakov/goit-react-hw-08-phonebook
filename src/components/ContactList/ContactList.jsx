@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
 
 export const ContactList = ({ contacts }) => {
+  const contactList = useSelector(state => state.contactList);
+  const contactFilter = useSelector(state => state.filterquery);
+
+  const getVisibleContacts = () => {
+    const normalized = contactFilter.toLowerCase();
+    return contactList.filter(contact => contact.name.toLowerCase().includes(normalized));
+  };
+
   return (
     <List>
-      {contacts.map(({ id, name, number }) =>
+      {getVisibleContacts().map(({ id, name, number }) =>
         <ContactItem key={id}
                      id={id}
                      name={name}

@@ -60,6 +60,6 @@ export const App = () => {
       <ContactForm onSubmit={addContact} />
       <TitleContacts>Contacts</TitleContacts>
       <Filter value={filter} onFilter={handleFilterChange} />
-      <ContactList contacts={getVisibleContacts()} deleteContact={deleteContact} />
+      <ContactList contacts={getVisibleContacts()} />
     </Wrapper>));
 };
