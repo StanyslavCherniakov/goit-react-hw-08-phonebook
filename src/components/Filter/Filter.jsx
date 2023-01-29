@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { filter } from '../../redux/filterSlice';
 import { Title } from './Filter.styled';
 
-export const Filter = ({ value, onFilter }) => {
+export const Filter = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state.filterquery);
 
@@ -18,9 +17,4 @@ export const Filter = ({ value, onFilter }) => {
       <input type='text' name='filter' value={state} onChange={handleFilterChange} />
     </>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onFilter: PropTypes.func.isRequired,
 };

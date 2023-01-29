@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
 
-export const ContactList = ({ contacts }) => {
+export const ContactList = () => {
   const contactList = useSelector(state => state.contactList);
   const contactFilter = useSelector(state => state.filterquery);
 
