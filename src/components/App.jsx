@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContacts, removeContact } from '../redux/contactsSlice';
 import LsService from './utils/localStorage';
 
 import { nanoid } from 'nanoid';
@@ -13,9 +15,13 @@ export const App = () => {
   });
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    LsService.save('contacts', contacts);
-  }, [contacts]);
+  const state = useSelector(state => state.contactList);
+  console.log(state);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   LsService.save('contacts', contacts);
+  // }, [contacts]);
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -33,6 +39,7 @@ export const App = () => {
       number,
     };
     setContacts(pState => [newContact, ...pState]);
+    dispatch(addContacts(newContact));
   };
 
   const checkDoubleContact = (inputData) => {
