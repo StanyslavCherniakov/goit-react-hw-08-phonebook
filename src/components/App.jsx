@@ -3,13 +3,13 @@ import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContacts } from '../redux/contactsSlice';
+import { addContacts, getContacts } from '../redux/contactsSlice';
 
 import { nanoid } from 'nanoid';
 import { Title, TitleContacts, Wrapper } from './App.styled';
 
 export const App = () => {
-  const contacts = useSelector(state => state.contactList.contacts);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const addContact = (data) => {
