@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from '../redux/contactsSlice';
-import LsService from './utils/localStorage';
 
 import { nanoid } from 'nanoid';
 import { Title, TitleContacts, Wrapper } from './App.styled';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() => {
-    return LsService.load('contacts') ?? [];
-  });
-
+  const contacts = useSelector(state => state.contactList);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   LsService.save('contacts', contacts);
-  // }, [contacts]);
 
   const addContact = (data) => {
     const { name, number } = data;
@@ -31,7 +23,6 @@ export const App = () => {
       name,
       number,
     };
-    setContacts(pState => [newContact, ...pState]);
     dispatch(addContacts(newContact));
   };
 

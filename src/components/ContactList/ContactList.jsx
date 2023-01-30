@@ -7,7 +7,7 @@ import { List } from './ContactList.styled';
 export const ContactList = () => {
   const contactList = useSelector(state => state.contactList);
   const contactFilter = useSelector(state => state.filterquery);
-
+  
   const getVisibleContacts = () => {
     const normalized = contactFilter.toLowerCase();
     return contactList.filter(contact => contact.name.toLowerCase().includes(normalized));
