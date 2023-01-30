@@ -5,13 +5,16 @@ import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
 
 export const ContactList = () => {
-  const contactList = useSelector(state => state.contactList);
-  const contactFilter = useSelector(state => state.filterquery);
-  
+  const contacts = useSelector(state => state.contactList.contacts);
+  const contactFilter = useSelector(state => state.contactList.filterField);
+
+
   const getVisibleContacts = () => {
     const normalized = contactFilter.toLowerCase();
-    return contactList.filter(contact => contact.name.toLowerCase().includes(normalized));
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalized));
   };
+
+  console.log(getVisibleContacts());
 
   return (
     <List>

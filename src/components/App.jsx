@@ -9,7 +9,7 @@ import { nanoid } from 'nanoid';
 import { Title, TitleContacts, Wrapper } from './App.styled';
 
 export const App = () => {
-  const contacts = useSelector(state => state.contactList);
+  const contacts = useSelector(state => state.contactList.contacts);
   const dispatch = useDispatch();
 
   const addContact = (data) => {
