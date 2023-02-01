@@ -8,8 +8,7 @@ import { getFilterField } from '../../redux/filterSlice';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
-  const contactFilter = useSelector(state => state.filter);
-  console.log(contactFilter);
+  const contactFilter = useSelector(getFilterField);
 
   const getVisibleContacts = () => {
     const normalized = contactFilter.toLowerCase();
