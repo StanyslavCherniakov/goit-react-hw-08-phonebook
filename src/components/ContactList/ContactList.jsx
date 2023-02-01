@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
-import { getContacts, getFilterField } from '../../redux/contactsSlice';
+import { getContacts } from '../../redux/contactsSlice';
+import { getFilterField } from '../../redux/filterSlice';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
-  const contactFilter = useSelector(getFilterField);
-  
+  const contactFilter = useSelector(state => state.filter);
+  console.log(contactFilter);
+
   const getVisibleContacts = () => {
     const normalized = contactFilter.toLowerCase();
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalized));
