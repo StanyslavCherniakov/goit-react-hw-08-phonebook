@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Btn } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts, getContacts } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/operations';
 import { nanoid } from 'nanoid';
 
 
@@ -25,17 +26,18 @@ export const ContactForm = () => {
     }
   };
 
-  const addContact = (name, number) => {
+  const addNewContact = (name, number) => {
     if (checkDoubleContact(name)) {
       alert(`${name} is already in your contacts!`);
       return;
     }
     const newContact = {
-      id: nanoid(),
+      // id: nanoid(),
       name,
-      number,
+      phone: number,
     };
-    dispatch(addContacts(newContact));
+    // dispatch(addContacts(newContact));
+    dispatch(addContact(newContact));
   };
 
   const checkDoubleContact = (name) => {
@@ -44,7 +46,7 @@ export const ContactForm = () => {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    addContact(name, number);
+    addNewContact(name, number);
     setName('');
     setNumber('');
   };

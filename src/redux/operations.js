@@ -15,3 +15,11 @@ export const fetchContacts = createAsyncThunk(
   },
 );
 
+export const addContact = createAsyncThunk(
+  'contacts/addContact',
+  async (data) => {
+    const response = await axios.post('/contacts', data);
+    return response.data;
+  },
+);
+
