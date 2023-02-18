@@ -18,11 +18,6 @@ import { RegisterPage } from '../pages/RegisterPage';
 
 
 export const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   const isLoading = useSelector(getLoadingState);
   const errorMessage = useSelector(getErrorMessage);

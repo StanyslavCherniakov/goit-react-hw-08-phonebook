@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
 import { getContacts } from '../../redux/contacts/contactsSlice';
 import { getFilterField } from '../../redux/contacts/filterSlice';
+import { fetchContacts } from '../../redux/contacts/operations';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -17,11 +18,11 @@ export const ContactList = () => {
 
   return (
     <List>
-      {getVisibleContacts().map(({ id, name, phone }) =>
+      {getVisibleContacts().map(({ id, name, number }) =>
         <ContactItem key={id}
                      id={id}
                      name={name}
-                     number={phone}
+                     number={number}
         />)}
     </List>
   );
