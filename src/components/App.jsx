@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getErrorMessage, getLoadingState } from '../redux/contacts/contactsSlice';
+import { useDispatch } from 'react-redux';
 import { ContactPage } from '../pages/ContactPage';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
