@@ -9,6 +9,12 @@ import { Notifications } from './Notifications/Notifications';
 
 import { Title, TitleContacts, Wrapper } from './App.styled';
 import { ColorRing } from 'react-loader-spinner';
+import { ContactPage } from '../pages/ContactPage';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+import { HomePage } from '../pages/HomePage';
+import { LoginPage } from '../pages/LoginPage';
+import { RegisterPage } from '../pages/RegisterPage';
 
 
 export const App = () => {
@@ -22,20 +28,14 @@ export const App = () => {
   const errorMessage = useSelector(getErrorMessage);
 
   return (
-    (<Wrapper>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <TitleContacts>Contacts</TitleContacts>
-      <Filter />
-      {errorMessage && <Notifications />}
-      {isLoading ? <ColorRing
-        visible={true}
-        height='80'
-        width='80'
-        ariaLabel='blocks-loading'
-        wrapperStyle={{}}
-        wrapperClass='blocks-wrapper'
-        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-      /> : <ContactList />}
-    </Wrapper>));
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/contacts' element={<ContactPage />} />
+      </Route>
+    </Routes>
+    // <ContactPage />
+  );
 };
