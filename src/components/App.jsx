@@ -19,8 +19,6 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  const isLoading = useSelector(getLoadingState);
-  const errorMessage = useSelector(getErrorMessage);
 
   return (
     <Routes>
