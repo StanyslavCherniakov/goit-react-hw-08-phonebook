@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
-import { getContacts } from '../../redux/contactsSlice';
-import { getFilterField } from '../../redux/filterSlice';
+import { getContacts } from '../../redux/contacts/contactsSlice';
+import { getFilterField } from '../../redux/contacts/filterSlice';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);

@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
-import { fetchContacts } from '../redux/operations';
-import { getErrorMessage, getLoadingState } from '../redux/contactsSlice';
+import { fetchContacts } from '../redux/contacts/operations';
+import { getErrorMessage, getLoadingState } from '../redux/contacts/contactsSlice';
 import { Notifications } from './Notifications/Notifications';
 
 import { Title, TitleContacts, Wrapper } from './App.styled';

@@ -1,12 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { logIn, register } from '../../redux/auth/operations';
 
-export const LoginForm = props => {
+export const LoginForm = () => {
+  const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    
+    dispatch(logIn(
+      {
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      },
+    ));
     form.reset();
   };
 
