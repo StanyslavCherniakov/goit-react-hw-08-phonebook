@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { RegisterForm } from '../components/RegisterForm/RegisterForm';
 
-export const RegisterPage = props => {
+export const RegisterPage = () => {
   return (
     <div>
       <p>REGISTER PAGE</p>
@@ -11,4 +10,3 @@ export const RegisterPage = props => {
   );
 };
 
-RegisterPage.propTypes = {};

@@ -1,14 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ContactForm } from './ContactForm';
-import { ContactList } from './ContactList';
-import { Filter } from './Filter';
-import { fetchContacts } from '../redux/contacts/operations';
 import { getErrorMessage, getLoadingState } from '../redux/contacts/contactsSlice';
-import { Notifications } from './Notifications/Notifications';
-
-import { Title, TitleContacts, Wrapper } from './App.styled';
-import { ColorRing } from 'react-loader-spinner';
 import { ContactPage } from '../pages/ContactPage';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';

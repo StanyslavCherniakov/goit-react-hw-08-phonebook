@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import PropTypes from 'prop-types';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -38,5 +37,4 @@ export const RegisterForm = () => {
   );
 };
 
-RegisterForm.propTypes = {};
 

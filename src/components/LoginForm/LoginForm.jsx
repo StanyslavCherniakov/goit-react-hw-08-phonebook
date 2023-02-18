@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import { logIn, register } from '../../redux/auth/operations';
+import { logIn } from '../../redux/auth/operations';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -33,4 +32,3 @@ export const LoginForm = () => {
   );
 };
 
-LoginForm.propTypes = {};

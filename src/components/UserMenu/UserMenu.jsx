@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { useAuth } from '../../hooks/useAuth';
 import { logOut } from '../../redux/auth/operations';
 
@@ -23,4 +22,3 @@ export const UserMenu = () => {
   );
 };
 
-UserMenu.propTypes = {};

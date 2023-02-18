@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export const HomePage = props => {
+export const HomePage = () => {
   return (
     <div>
       <p>HOME PAGE</p>
@@ -9,5 +8,4 @@ export const HomePage = props => {
   );
 };
 
-HomePage.propTypes = {};
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { LoginForm } from '../components/LoginForm/LoginForm';
 
-export const LoginPage = props => {
+export const LoginPage = () => {
   return (
     <div>
       <p>LOGIN PAGE</p>
@@ -11,5 +10,4 @@ export const LoginPage = props => {
   );
 };
 
-LoginPage.propTypes = {};
 

@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
 import { getContacts } from '../../redux/contacts/contactsSlice';
 import { getFilterField } from '../../redux/contacts/filterSlice';
-import { fetchContacts } from '../../redux/contacts/operations';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
