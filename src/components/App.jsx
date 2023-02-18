@@ -15,9 +15,15 @@ import { Layout } from './Layout/Layout';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
+import { refreshUser } from '../redux/auth/operations';
 
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   const isLoading = useSelector(getLoadingState);
   const errorMessage = useSelector(getErrorMessage);
@@ -31,6 +37,5 @@ export const App = () => {
         <Route path='/contacts' element={<ContactPage />} />
       </Route>
     </Routes>
-    // <ContactPage />
   );
 };
