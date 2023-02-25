@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../../hooks/useAuth';
 import { logOut } from '../../redux/auth/operations';
+import { Button, Typography, Box, IconButton } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 export const UserMenu = () => {
@@ -13,12 +15,12 @@ export const UserMenu = () => {
   };
 
   return (
-    <div>
-      <p>Welcome, {user.email}</p>
-      <button type='button' onClick={handleLogOut}>
-        Logout
-      </button>
-    </div>
+    <Box display='flex' justifyContent='center' alignItems='center'>
+      <Typography variant='p' component='p'>Welcome, {user.email}</Typography>
+      <IconButton size='large' aria-label='logout button' onClick={handleLogOut}>
+        <LogoutIcon />
+      </IconButton>
+    </Box>
   );
 };
 

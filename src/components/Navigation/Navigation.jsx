@@ -1,14 +1,19 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { NavItem } from './Navigation.styled';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <div>
-      <NavLink to='/'>HOME</NavLink>
-      {isLoggedIn && <NavLink to='/contacts'>CONTACTS</NavLink>}
+      <Button color='inherit'>
+        <NavItem to='/'>HOME</NavItem>
+      </Button>
+      {isLoggedIn && <Button color='inherit'>
+        <NavItem to='/contacts'>CONTACTS</NavItem>
+      </Button>}
     </div>
   );
 };
