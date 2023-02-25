@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import { TextField, Button, Box, FormHelperText } from '@mui/material';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -20,19 +21,47 @@ export const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit} autoComplete='off'>
-      <label>
-        Username
-        <input type='text' name='name' />
-      </label>
-      <label>
-        Email
-        <input type='email' name='email' />
-      </label>
-      <label>
-        Password
-        <input type='password' name='password' />
-      </label>
-      <button type='submit'>Register</button>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: 400,
+          mt: 5,
+          ml: 'auto',
+          mr: 'auto',
+        }}
+      >
+        <TextField
+          fullWidth
+          sx={{ mb: 2 }}
+          size='small' name='name'
+          id='outlined-basic'
+          label='Name'
+          variant='outlined' />
+        <TextField
+          fullWidth
+          sx={{ mb: 2 }}
+          size='small' name='email'
+          id='outlined-basic'
+          label='Email'
+          variant='outlined' />
+        <TextField
+          fullWidth
+          // sx={{ mb: 2 }}
+          size='small'
+          name='password'
+          id='outlined-password-input'
+          label='Password'
+          type='password'
+          autoComplete='current-password'
+          aria-describedby='component-helper-text'
+        />
+        <FormHelperText id='component-helper-text'>
+          Password must be at least 7 characters length
+        </FormHelperText>
+        <Button sx={{ width: 100, mt: 2 }} variant='outlined' type='submit'>Register</Button>
+      </Box>
     </form>
   );
 };
