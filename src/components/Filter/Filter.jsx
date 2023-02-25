@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { filterContact } from '../../redux/contacts/filterSlice';
-import { TextField, Typography, InputAdornment } from '@mui/material';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import { TextField, InputAdornment } from '@mui/material';
+
 import SearchIcon from '@mui/icons-material/Search';
 
 export const Filter = () => {

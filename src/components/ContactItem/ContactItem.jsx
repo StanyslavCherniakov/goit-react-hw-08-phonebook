@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Btn, Contact, Item } from './ContactItem.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 import { IconButton, ListItem } from '@mui/material';
