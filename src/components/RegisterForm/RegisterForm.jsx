@@ -42,7 +42,9 @@ export const RegisterForm = () => {
         <TextField
           fullWidth
           sx={{ mb: 2 }}
-          size='small' name='email'
+          size='small'
+          name='email'
+          type='email'
           id='outlined-basic'
           label='Email'
           variant='outlined' />
