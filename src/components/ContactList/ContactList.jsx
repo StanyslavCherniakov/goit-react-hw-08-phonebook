@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
-import { List } from './ContactList.styled';
 import { getContacts } from '../../redux/contacts/contactsSlice';
 import { getFilterField } from '../../redux/contacts/filterSlice';
-import { Container } from '@mui/material';
+import { Container, Collapse } from '@mui/material';
+import { TransitionGroup } from 'react-transition-group';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -19,12 +19,15 @@ export const ContactList = () => {
   return (
     <Container maxWidth='xs'>
       <ul>
-        {getVisibleContacts().map(({ id, name, number }) =>
-          <ContactItem key={id}
-                       id={id}
-                       name={name}
-                       number={number}
-          />)}
+        <TransitionGroup>
+          {getVisibleContacts().map(({ id, name, number }) =>
+            <Collapse key={id} timeout={500}>
+              <ContactItem id={id}
+                           name={name}
+                           number={number}
+              />
+            </Collapse>)}
+        </TransitionGroup>
       </ul>
     </Container>
   );

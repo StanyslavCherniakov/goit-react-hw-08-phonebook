@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Btn, Contact, Item } from './ContactItem.styled';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
-import { Box, Container, IconButton, ListItem } from '@mui/material';
+import { IconButton, ListItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ContactItem = ({ id, name, number }) => {
