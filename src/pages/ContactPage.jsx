@@ -4,7 +4,7 @@ import { Filter } from '../components/Filter';
 import { ContactList } from '../components/ContactList';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from '../redux/contacts/operations';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Divider, Chip } from '@mui/material';
 
 export const ContactPage = () => {
   const dispatch = useDispatch();

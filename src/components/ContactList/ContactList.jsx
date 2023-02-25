@@ -5,6 +5,7 @@ import { ContactItem } from '../ContactItem';
 import { List } from './ContactList.styled';
 import { getContacts } from '../../redux/contacts/contactsSlice';
 import { getFilterField } from '../../redux/contacts/filterSlice';
+import { Container } from '@mui/material';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -16,14 +17,16 @@ export const ContactList = () => {
   };
 
   return (
-    <List>
-      {getVisibleContacts().map(({ id, name, number }) =>
-        <ContactItem key={id}
-                     id={id}
-                     name={name}
-                     number={number}
-        />)}
-    </List>
+    <Container maxWidth='xs'>
+      <ul>
+        {getVisibleContacts().map(({ id, name, number }) =>
+          <ContactItem key={id}
+                       id={id}
+                       name={name}
+                       number={number}
+          />)}
+      </ul>
+    </Container>
   );
 };
 
