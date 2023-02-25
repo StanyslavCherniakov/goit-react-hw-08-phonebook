@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.0801d2de.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.201d08a6.js",
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.41341c81.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.eda85f34.js",
+    "static/media/Stanyslav_Cherniakov_background_for_contact_book_app_in_modern__a47f0727-d336-42c5-8f26-10597a5d32c7.png": "/goit-react-hw-08-phonebook/static/media/Stanyslav_Cherniakov_background_for_contact_book_app_in_modern__a47f0727-d336-42c5-8f26-10597a5d32c7.65821d283988637ea10c.png",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.0801d2de.css.map": "/goit-react-hw-08-phonebook/static/css/main.0801d2de.css.map",
-    "main.201d08a6.js.map": "/goit-react-hw-08-phonebook/static/js/main.201d08a6.js.map"
+    "main.41341c81.css.map": "/goit-react-hw-08-phonebook/static/css/main.41341c81.css.map",
+    "main.eda85f34.js.map": "/goit-react-hw-08-phonebook/static/js/main.eda85f34.js.map"
   },
   "entrypoints": [
-    "static/css/main.0801d2de.css",
-    "static/js/main.201d08a6.js"
+    "static/css/main.41341c81.css",
+    "static/js/main.eda85f34.js"
   ]
 }
