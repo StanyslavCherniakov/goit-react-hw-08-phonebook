@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { filterContact } from '../../redux/contacts/filterSlice';
-import { Title } from './Filter.styled';
+import { TextField, Typography, InputAdornment } from '@mui/material';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -11,9 +13,20 @@ export const Filter = () => {
   };
 
   return (
-    <>
-      <Title>Find contacts by name</Title>
-      <input type='text' name='filter' onChange={handleFilterChange} />
-    </>
+    <TextField
+      sx={{ mb: 2, mt: 1 }}
+      name='filter'
+      onChange={handleFilterChange}
+      id='input-with-icon-textfield'
+      label='Find Contacts'
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position='start'>
+            <SearchIcon />
+          </InputAdornment>
+        ),
+      }}
+      variant='standard'
+    />
   );
 };
