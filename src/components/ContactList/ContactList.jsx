@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { getContacts } from '../../redux/contacts/contactsSlice';
 import { getFilterField } from '../../redux/contacts/filterSlice';
-import { Container, Collapse } from '@mui/material';
+import { Container, Collapse, Alert } from '@mui/material';
 import { TransitionGroup } from 'react-transition-group';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -15,6 +17,38 @@ export const ContactList = () => {
     const normalized = contactFilter.toLowerCase();
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalized));
   };
+
+  // Logic for checking is contact added/removed
+  const prevContacts = useRef(contacts);
+  useEffect(() => {
+    const isContactAdded = contacts.length > prevContacts.current.length;
+    const isContactRemoved = contacts.length < prevContacts.current.length;
+    if (isContactAdded) {
+      toast.success('Contact added!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
+    if (isContactRemoved) {
+      toast.success('Contact removed!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
+    prevContacts.current = contacts;
+  });
 
   return (
     <Container maxWidth='xs'>
@@ -29,6 +63,7 @@ export const ContactList = () => {
             </Collapse>)}
         </TransitionGroup>
       </ul>
+      <ToastContainer />
     </Container>
   );
 };
