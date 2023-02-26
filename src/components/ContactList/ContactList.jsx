@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ContactItem } from '../ContactItem';
 import { getContacts } from '../../redux/contacts/contactsSlice';
 import { getFilterField } from '../../redux/contacts/filterSlice';
-import { Container, Collapse, Alert } from '@mui/material';
+import { Container, Collapse } from '@mui/material';
 import { TransitionGroup } from 'react-transition-group';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
