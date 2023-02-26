@@ -11,8 +11,8 @@ export const Appbar = () => {
 
   return (
     <header>
-      <Box>
-        <AppBar position='static'>
+      <Box sx={{ mb: 8 }}>
+        <AppBar position='fixed'>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}> <Navigation /></Box>
             {isLoggedIn ? <UserMenu /> : <AuthNav />}
